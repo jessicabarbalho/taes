@@ -9,7 +9,6 @@
 	</label>
 	<g:field type="" name="contaTransferir" value="${fieldValue(bean: contaInstance, field: 'contaTransferir')}" required="" default="0"/>
 
-
 	<label for="valorTransferir">
 		<g:hiddenField name="id" value="${contaInstance?.id}" />
 		<g:hiddenField name="id" value="${contaInstance?.version}" />

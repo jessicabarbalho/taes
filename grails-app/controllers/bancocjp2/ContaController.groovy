@@ -163,7 +163,8 @@ class ContaController {
 	
 	def transferPost(Long id, Long version) {
 		def contaInstance = Conta.get(id)
-		def contaTransferirInstance = Conta.findByConta(params.contaTransferir)[0];
+		def contaT = params.contaTransferir;
+		def contaTransferirInstance = Conta.find {conta == contaT};
 		if (!contaInstance) {
 			flash.message = message(code: 'default.not.found.message', args: [message(code: 'conta.label', default: 'Conta'), id])
 			redirect(action: "list")
