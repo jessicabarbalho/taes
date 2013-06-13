@@ -14,7 +14,7 @@ class Conta {
 	double valorCreditar
 	double valorDebitar
 	double valorTransferir
-	Long contaTransferir
+	String contaTransferir
 	
     static constraints = {
     }

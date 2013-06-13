@@ -119,7 +119,7 @@ class ContaController {
             return
         }
 		
-		contaInstance.saldo += params.valorCreditar;
+		contaInstance.saldo += Double.parseDouble(params.valorCreditar).value;
 		contaInstance.save(flush: true)
 		
 		redirect(action: "show", id: id)
@@ -144,7 +144,7 @@ class ContaController {
 			return
 		}
 		
-		contaInstance.saldo -= params.valorDebitar;
+		contaInstance.saldo -= Double.parseDouble(params.valorDebitar).value;
 		contaInstance.save(flush: true)
 		
 		redirect(action: "show", id: id)
@@ -163,17 +163,17 @@ class ContaController {
 	
 	def transferPost(Long id, Long version) {
 		def contaInstance = Conta.get(id)
-		def contaTransferirInstance = Conta.findByConta(contaTransferir);
+		def contaTransferirInstance = Conta.findByConta(params.contaTransferir)[0];
 		if (!contaInstance) {
 			flash.message = message(code: 'default.not.found.message', args: [message(code: 'conta.label', default: 'Conta'), id])
 			redirect(action: "list")
 			return
 		}
 		
-		contaInstance.saldo -= params.valorTransferir;
+		contaInstance.saldo -= Double.parseDouble(params.valorTransferir).value;
 		contaInstance.save(flush: true)
 		
-		contaTransferirInstance.saldo += params.valorTransferir;
+		contaTransferirInstance.saldo += Double.parseDouble(params.valorTransferir).value;
 		contaTransferirInstance.save(flush: true)
 		
 		redirect(action: "show", id: id)

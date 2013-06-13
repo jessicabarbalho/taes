@@ -59,14 +59,12 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${contaInstance?.saldo}">
 				<li class="fieldcontain">
 					<span id="senha-label" class="property-label"><g:message code="conta.saldo.label" default="Saldo" /></span>
 					
-						<span class="property-value" aria-labelledby="saldo-label"><g:fieldValue bean="${contaInstance}" field="saldo"/></span>
+						<span class="property-value" aria-labelledby="saldo-label">R$ <g:fieldValue bean="${contaInstance}" field="saldo"/></span>
 					
 				</li>
-				</g:if>
 			
 			</ol>
 			<g:form>

@@ -31,7 +31,7 @@
 					<g:render template="debitform"/>
 				</fieldset>
 				<fieldset class="buttons">
-					<g:submitButton name="debit" class="save" value="${message(code: 'default.button.debit.label', default: 'debit')}" />
+					<g:actionSubmit action="debitPost" value="${message(code: 'default.button.debit.label', default: 'debitPost')}" />
 				</fieldset>
 			</g:form>
 		</div>
