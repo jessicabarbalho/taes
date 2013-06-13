@@ -101,17 +101,40 @@ class ContaController {
     }
 	
 	def credit(Long id) {
-		[contaInstance: new Conta(params)]
-	}
-	
-	def debit(Long id){
-		[contaInstance: new Conta(params)]
-	}
-	
-	def transfer(Long id){
-		[contaInstance: new Conta(params)]
+		def contaInstance = Conta.get(id)
+		if (!contaInstance) {
+			flash.message = message(code: 'default.not.found.message', args: [message(code: 'conta.label', default: 'Conta'), id])
+			redirect(action: "list")
+			return
+		}
 		
-		flash.message = message(code: 'default.created.message', args: [message(code: 'conta.label', default: 'Conta'), contaInstance.id])
-		redirect(action: "show", id: contaInstance.id)
+		[contaInstance: contaInstance]
+	}
+	
+	def creditPost(Long id, Long version) {
+        def contaInstance = Conta.get(id)
+        if (!contaInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'conta.label', default: 'Conta'), id])
+            redirect(action: "list")
+            return
+        }
+	}
+	
+	def debit(Long id, Long version){
+        def contaInstance = Conta.get(id)
+        if (!contaInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'conta.label', default: 'Conta'), id])
+            redirect(action: "list")
+            return
+        }
+	}
+	
+	def transfer(Long id, Long version){
+		def contaInstance = Conta.get(id)
+        if (!contaInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'conta.label', default: 'Conta'), id])
+            redirect(action: "list")
+            return
+        }
 	}
 }

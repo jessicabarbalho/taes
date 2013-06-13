@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
+		<title>Banco CJP</title>
 		<style type="text/css" media="screen">
 			#status {
 				background-color: #eee;
@@ -84,23 +84,11 @@
 		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div id="status" role="complementary">
 			<h1><g:link controller="conta" action="create">Nova Conta</g:link></h1>
-			<h1><g:link controller="conta" action="credit">Creditar</g:link></h1>
-			<h1><g:link controller="conta" action="debit">Debitar</g:link></h1>
-			<h1><g:link controller="conta" action="transfer">Transferir</g:link></h1>
+			<h1><g:link controller="conta" action="list">Transações</g:link></h1>
 		</div>
 		<div id="page-body" role="main">
 			<h1>Bem-vindo ao Banco CJP</h1>
 			<p>Ainda não é nosso cliente? <g:link controller="conta" action="create">Crie sua conta agora mesmo!</g:link></p>
-
-			<div id="controller-list" role="navigation">
-				<h2>Opções</h2>
-				<ul>
-					<li><g:link controller="conta" action="create">Nova Conta</g:link></li>
-					<li><g:link controller="conta" action="credit">Creditar</g:link></li>
-					<li><g:link controller="conta" action="debit">Debitar</g:link></li>
-					<li><g:link controller="conta" action="transfer">Transferir</g:link></li>
-				</ul>
-			</div>
 		</div>
 	</body>
 </html>

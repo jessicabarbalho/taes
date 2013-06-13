@@ -28,7 +28,7 @@
 			</g:hasErrors>
 			<g:form action="save" >
 				<fieldset class="form">
-					<g:render template="form"/>
+					<g:render template="debitform"/>
 				</fieldset>
 				<fieldset class="buttons">
 					<g:submitButton name="debit" class="save" value="${message(code: 'default.button.debit.label', default: 'debit')}" />

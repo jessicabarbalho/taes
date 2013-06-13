@@ -28,10 +28,10 @@
 			</g:hasErrors>
 			<g:form action="save" >
 				<fieldset class="form">
-					<g:render template="form"/>
+					<g:render template="creditform"/>
 				</fieldset>
 				<fieldset class="buttons">
-					<g:submitButton name="credit" class="save" value="${message(code: 'default.button.credit.label', default: 'credit')}" />
+					<g:actionSubmit action="updateCreditar" value="${message(code: 'default.button.credit.label', default: 'credit')}" />
 				</fieldset>
 			</g:form>
 		</div>

@@ -28,7 +28,7 @@
 			</g:hasErrors>
 			<g:form action="save" >
 				<fieldset class="form">
-					<g:render template="form"/>
+					<g:render template="transferform"/>
 				</fieldset>
 				<fieldset class="buttons">
 					<g:submitButton name="transfer" class="save" value="${message(code: 'default.button.transfer.label', default: 'transfer')}" />
