@@ -49,3 +49,8 @@
 	<g:textField name="senha" value="${contaInstance?.senha}" required="" default="0"/>
 </div>
 
+
+<g:field type="hidden" name="valorCreditar" value="${fieldValue(bean: contaInstance, field: 'saldo')}" required="" value="0"/>
+<g:field type="hidden" name="valorDebitar" value="${fieldValue(bean: contaInstance, field: 'saldo')}" required="" value="0"/>
+<g:field type="hidden" name="valorTransferir" value="${fieldValue(bean: contaInstance, field: 'saldo')}" required="" value="0"/>
+<g:field type="hidden" name="contaTransferir" value="${fieldValue(bean: contaInstance, field: 'saldo')}" required="" value="0"/>

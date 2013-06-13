@@ -9,7 +9,12 @@ class Conta {
 	String conta
 	String agencia
 	String senha
-	BigDecimal saldo
+	double saldo
+	
+	double valorCreditar
+	double valorDebitar
+	double valorTransferir
+	Long contaTransferir
 	
     static constraints = {
     }

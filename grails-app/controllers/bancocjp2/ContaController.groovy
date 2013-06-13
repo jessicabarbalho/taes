@@ -4,7 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class ContaController {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [save: "POST", update: "POST", delete: "POST", creditPost: "POST"]
 
     def index() {
         redirect(action: "list", params: params)
@@ -118,6 +118,11 @@ class ContaController {
             redirect(action: "list")
             return
         }
+		
+		contaInstance.saldo += params.valorCreditar;
+		contaInstance.save(flush: true)
+		
+		redirect(action: "show", id: id)
 	}
 	
 	def debit(Long id, Long version){
@@ -127,6 +132,22 @@ class ContaController {
             redirect(action: "list")
             return
         }
+		
+		[contaInstance: contaInstance]
+	}
+	
+	def debitPost(Long id, Long version) {
+		def contaInstance = Conta.get(id)
+		if (!contaInstance) {
+			flash.message = message(code: 'default.not.found.message', args: [message(code: 'conta.label', default: 'Conta'), id])
+			redirect(action: "list")
+			return
+		}
+		
+		contaInstance.saldo -= params.valorDebitar;
+		contaInstance.save(flush: true)
+		
+		redirect(action: "show", id: id)
 	}
 	
 	def transfer(Long id, Long version){
@@ -136,5 +157,25 @@ class ContaController {
             redirect(action: "list")
             return
         }
+		
+		[contaInstance: contaInstance]
+	}
+	
+	def transferPost(Long id, Long version) {
+		def contaInstance = Conta.get(id)
+		def contaTransferirInstance = Conta.findByConta(contaTransferir);
+		if (!contaInstance) {
+			flash.message = message(code: 'default.not.found.message', args: [message(code: 'conta.label', default: 'Conta'), id])
+			redirect(action: "list")
+			return
+		}
+		
+		contaInstance.saldo -= params.valorTransferir;
+		contaInstance.save(flush: true)
+		
+		contaTransferirInstance.saldo += params.valorTransferir;
+		contaTransferirInstance.save(flush: true)
+		
+		redirect(action: "show", id: id)
 	}
 }
