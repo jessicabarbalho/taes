@@ -31,7 +31,7 @@
 					<g:render template="creditform"/>
 				</fieldset>
 				<fieldset class="buttons">
-					<g:actionSubmit action="updateCreditar" value="${message(code: 'default.button.credit.label', default: 'credit')}" />
+					<g:actionSubmit action="creditPost" value="${message(code: 'default.button.credit.label', default: 'creditPost')}" />
 				</fieldset>
 			</g:form>
 		</div>

@@ -1,4 +1,5 @@
 <%@ page import="bancocjp2.Conta" %>
+<%@ page import="bancocjp2.Transferencia" %>
 <!DOCTYPE html>
 <html>
 	<head>

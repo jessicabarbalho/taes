@@ -6,6 +6,6 @@
 		<g:message code="Valor à creditar" default="Valor à creditar" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field type="" name="valor" value="${fieldValue(bean: contaInstance, field: 'valor')}" required="" default="0"/>
+	<g:field type="" name="saldo" value="${fieldValue(bean: contaInstance, field: 'saldo')}" required="" default="0"/>
 </div>
 
