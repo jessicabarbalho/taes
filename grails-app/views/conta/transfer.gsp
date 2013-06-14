@@ -32,7 +32,7 @@
 					<g:render template="transferform"/>
 				</fieldset>
 				<fieldset class="buttons">
-					<g:submitButton name="transfer" class="save" value="${message(code: 'default.button.transfer.label', default: 'transfer')}" />
+					<g:actionSubmit action="transferPost" value="${message(code: 'default.button.transfer.label', default: 'transferPost')}" />
 				</fieldset>
 			</g:form>
 		</div>
